@@ -1,0 +1,64 @@
+*{
+    line-height:120%;
+}
+.head{
+}
+.header{
+    padding-top: 12%;
+    text-align: center;
+    padding-bottom: 8%;
+}
+.canvas{
+    display: block;
+    /*solve the problem of white blank under the canvas*/
+}
+.intro{
+    /*text-align: center;*/
+}
+.details{
+    margin-top: 96px;
+}
+.detailContainer{
+    display: none;
+}
+.detailExpand{
+    width: 160px;
+    height: 40px;
+    font-size: 16px;
+    background: rgba(255,255,255,0.2);
+    color: rgb(74,75,157);
+}
+.introPic{
+    /*padding-right: 6%;*/
+    max-width: 100%;
+
+    padding-top: 64px;
+}
+.picMark{
+    text-align: center;
+    font-size: 16px;
+}
+#intro1, #intro3, #intro5{
+    padding-left: 8%;
+    text-align: left;
+}
+#intro2, #intro4{
+    float: right;
+    padding-right: 8%;
+    text-align: right;
+}
+#tail{
+    padding-top: 80px;
+    padding-bottom: 80px;
+    text-align: center;
+    line-height: 20%;
+    color: #000;
+}
+@media screen and (max-width: 500px){
+    #intro1, #intro3, #intro5{
+        padding-left: 16px;
+    }
+    #intro2, #intro4{
+        padding-right: 16px;
+    }
+}

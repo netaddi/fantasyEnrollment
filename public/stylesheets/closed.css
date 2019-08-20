@@ -1,0 +1,52 @@
+html > *{
+    background-color: #c6dbf0;
+}
+
+.closed-text{
+    text-align: center;
+    padding-top:32px;
+}
+
+.explain{
+    padding-top: 128px;
+    padding-bottom: 128px;
+}
+
+#timer{
+    padding-top: 64px;
+}
+#time{
+    font-size: 64px;
+    font-family: Consolas, Verdana, Arial, "Microsoft YaHei UI Light";
+}
+#qgrounp{
+    padding-top: 64px;
+}
+.mobileNewline{
+    display: none;
+}
+#joinus{
+    display: none;
+}
+@media screen and (max-width: 768px){
+    .closed-text{
+        padding-top: 20%;
+    }
+    h1{
+        font-size: 24px;
+    }
+    h3{
+        font-size: 16px;
+    }
+    h4{
+        font-size: 12px;
+    }
+    #time{
+        text-align: left;
+        padding-left: 20%;
+        font-size: 48px;
+    }
+    .mobileNewline{
+        display: block;
+    }
+}

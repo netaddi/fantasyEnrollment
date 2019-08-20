@@ -1,0 +1,40 @@
+.header{
+    padding-top: 10%;
+    padding-bottom: 10%;
+
+    text-align: center;
+    color: #fff3b6;
+
+    background-image: url(../images/exp_header.jpg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.headtitle{
+    padding-left: 32px;
+    padding-right: 32px;
+    background-color: rgba(32,32,32,0.4);
+    border-radius: 16px;
+    display: inline-table;
+}
+@media screen and (max-width: 768px){
+    .header{
+        padding-top: 16%;
+        padding-bottom: 16%;
+    }
+}
+
+.products{
+    padding-top: 64px;
+}
+
+.list{
+    margin-top: 32px;
+    background-color: rgba(127,127,127,0.1);
+    border-radius: 16px;
+}
+
+a :hover {
+    background-color: rgba(127,127,127,0.2);
+    border-radius: 16px;
+}

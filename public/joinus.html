@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+    <title>报名F社</title>
+    <link rel="stylesheet" href="./stylesheets/bootstrap.min.css">
+    <script src="./javascripts/jquery.min.js"></script>
+    <script src="./javascripts/bootstrap.min.js"></script>
+    <script src="./javascripts/vue.js"></script>
+    <script src="./javascripts/axios.js"></script>
+    <link rel='stylesheet' href='./stylesheets/style.css' />
+    <link rel='stylesheet' href='./stylesheets/joinus.css' />
+
+</head>
+<body>
+<div id="headInterval"></div>
+
+<script src="./javascripts/joinus.js"></script>
+
+<div>
+    <img src="./images/Fmusume_joinus.jpg" id="bgPic">
+</div>
+
+<div class="container-fluid" id="head">
+    <h1>欢迎报名加入<br>Fantasy&nbsp; 动漫社</h1>
+    <h1 id="fullNotice">感谢您的关注，Fantasy动漫社本次纳新已结束！请关注2019春季纳新！</h1>
+</div>
+
+<!--<h1 id="vue">{{info}}</h1>-->
+<div id="formDiv">
+    <form method="post" action="/joinus" class="form-horizontal" onsubmit="return submitForm();" id="mainForm">
+        <div class="container formPart" id="personalInfo">
+            <hr>
+            <h4 class="text1">请告诉我们，你是谁？</h4>
+            <h5 class="text1">带<span class="requiredMark">*</span>的是必填项（请尽量填写所有问题）</h5>
+            <hr>
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label"><span class="requiredMark">*</span>姓名</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="name" name="name" class="required" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="nickname" class="col-sm-2 control-label"><span class="requiredMark">*</span>昵称</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="nickname" name="nickname" class="required" required>
+
+                </div>
+                <div class="container">
+                    <div id="exp1" class="col-sm-5 exp">
+                        <h5>在Fantasy动漫社，一般互称昵称而不是真实姓名。</h5>
+                        <h5>因此，一个简单、易懂的昵称十分重要。</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="sex" class="col-sm-2 control-label"><span class="requiredMark">*</span>性别</label>
+                <div class="col-sm-3">
+                    <select name="sex" class="form-control">
+                        <option value="无">无</option>
+                        <option value="女">女</option>
+                        <option value="男">男</option>
+                        <option value="其他">其他</option>
+                        <option value="未定义">未定义</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="studentId" class="col-sm-2 control-label"><span class="requiredMark">*</span>学号</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="studentId" name="studentId" class="required">
+                </div>
+
+                <label for="major" class="col-sm-2 control-label"><span class="requiredMark">*</span>专业/大类</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="major" name="major" class="required" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber" class="col-sm-2 control-label"><span class="requiredMark">*</span>手机长号</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" class="required">
+                </div>
+
+                <label for="shortNumber" class="col-sm-2 control-label">短号（选填）</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="shortNumber" name="shortNumber">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="qq" class="col-sm-2 control-label"><span class="requiredMark">*</span>QQ</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control required" id="qq" name="qq" required>
+                </div>
+
+                <label for="email" class="col-sm-2 control-label"><span class="requiredMark">*</span>邮箱</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control required" id="email" name="email">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="birthday" class="col-sm-2 control-label">生日</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control required" id="birthday" name="birthday">
+                </div>
+
+                <label for="dormitory" class="col-sm-2 control-label"><span class="requiredMark">*</span>宿舍</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control required" id="dormitory" name="dormitory" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="container">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                        <h5>你心中的漫社是个什么样的地方？加入漫社的你希望获得什么？</h5>
+                    </div>
+                </div>
+                <label for="comment" class="col-sm-2 control-label">&nbsp;</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control required" id="comment" name="comment" rows="5" ></textarea>
+                </div>
+            </div>
+
+            <hr>
+            <h4 class="text1">若您想更深入了解与参与F社丰富多彩的活动，且对ACGN文化怀揣热情，欢迎您加入以下五个部门及下设组别，成为光荣的部员。</h4>
+            <hr>
+
+            <div class="form-group">
+                <label for="ifJoinDepartment" class="col-sm-2 control-label"><span class="requiredMark">*</span>报名成为部员</label>
+                <div class="col-sm-3">
+                    <select name="ifJoinDepartment" class="form-control" id="ifJoinDepartment" onchange="changeJoinDepart()">
+                        <option value="是">是</option>
+                        <option value="否">否</option>
+                    </select>
+                </div>
+                <div class="container">
+                    <div id="exp2" class="col-sm-5 exp">
+                        <h5>什么是部员：</h5>
+                        <h5>部员可以进入具体的部门和组，深入地了解与参与F社丰富多彩的活动。</h5>
+                        <h5>部员可以参与部门内部活动和开放活动的组织承办，并享受更多福利。</h5>
+                        <h5>您可以<a href="/intro.html" target="_blank">点这里</a>查看部门介绍。</h5>
+                        <h5>当然啦，如果您对F社内部部门和组别功能形式还不太了解，或有其他任何社团相关的疑问，欢迎加入我们的QQ群：809553332。</h5>
+                        <h5>此外，我们将会在群内发布F社百团大战及宣讲会（9月22日、23日）的相关信息，欢迎参加！</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--department part-->
+        <div id="departmentInfo" class="container formPart">
+            <hr>
+            <!--<div class="container">-->
+                <div class="exp">
+                    <h5>
+                        秋季纳新共分为两批。
+                        您现在参与的是第二批纳新报名（9.18 0:00-9.23 24:00），
+                        您的面试时间将被安排在9.25-9.30之间（下附具体面试场次），
+                        面试总时长约45分钟。
+                        两批纳新没有任何形式上的区别，请放心报名参加。
+                        谢谢！
+                    </h5>
+                </div>
+            <!--</div>-->
+            <h4 class="text1">关于你，我们想了解更多……</h4>
+            <hr>
+            <div class="form-group">
+                <label for="department1" class="col-sm-2 control-label"><span class="requiredMark">*</span>第一志愿部门</label>
+                <div class="col-sm-3">
+                    <select name="department1" class="form-control depart-select" id="department1" onchange="handleDepartmentChange(1)" >
+                    </select>
+                </div>
+
+                <label for="group1" class="col-sm-2 control-label" ><span class="requiredMark">*</span>组</label>
+                <div class="col-sm-3">
+                    <select name="group1" class="form-control" id="group1" onchange="handleGroupChange()">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="department2" class="col-sm-2 control-label">第二志愿部门</label>
+                <div class="col-sm-3">
+                    <select name="department2" class="form-control" id="department2" onchange="handleDepartmentChange(2)">
+                    </select>
+                </div>
+
+                <label for="group2" class="col-sm-2 control-label" >组</label>
+                <div class="col-sm-3">
+                    <select name="group2" class="form-control" id="group2" onchange="handleGroupChange()">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="department3" class="col-sm-2 control-label">第三志愿部门</label>
+                <div class="col-sm-3">
+                    <select name="department3" class="form-control" id="department3" onchange="handleDepartmentChange(3)">
+                    </select>
+                </div>
+
+                <label for="group3" class="col-sm-2 control-label" >组</label>
+                <div class="col-sm-3">
+                    <select name="group3" class="form-control" id="group3" onchange="handleGroupChange()">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="container">
+                <div id="exp3" class="col-sm-8 exp col-sm-offset-2">
+                    <h5>关于报名部门的说明：</h5>
+                    <h5>你可以填写一到三个志愿，报名后我们将根据您的面试表现决定您最后的归属部门和组（原则上只会被唯一志愿录取）。</h5>
+                    <h5>其中DRAMA部CV组安排有额外的试音面试，轻音组安排有额外的音乐素养考核，
+                        面试时间将会在后续短信中通知，请注意查收。</h5>
+                    <h5>报名创作部写手组和画手组的同学，在报名截止之后会有一份额外问题通过邮件的形式发送，请注意查收。</h5>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="container">
+                    <label for="" class="col-sm-5 control-label"><span class="requiredMark">*</span>
+                        您可以参加的面试时间（请尽量将您有空的时间都选上，感谢您的配合!）
+                    </label>
+                    <br>
+                </div>
+                <div class="container col-sm-offset-3" id="timeContainer">
+                </div>
+            </div>
+            <div class="container">
+                <div id="exp_3" class="col-sm-8 exp col-sm-offset-2">
+                    <h5>我们根据您的志愿准备了以下额外问题，您的填写内容将作为我们面试考核参考的一部分。</h5>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="container">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                        <h5><span class="requiredMark">*</span>为什么报名希望成为部员呢？</h5>
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <textarea class="form-control" id="whyJoinDepart" name="whyJoinDepart" rows="3"></textarea>
+                </div>
+            </div>
+
+
+            <div class="form-group exQuestions" id="exQuestion">
+            </div>
+
+        </div>
+
+        <div id="tail" class="container formPart">
+
+            <div class="form-group">
+                <div class="container">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                        <h5>Free Talk（你可以在这里写任何你想写的东西）</h5>
+                    </div>
+                </div>
+                <label for="freeTalk" class="col-sm-2 control-label">&nbsp;</label>
+                <div class="col-sm-8">
+                    <textarea name="freeTalk" class="form-control" id="freeTalk" rows="5"></textarea>
+                </div>
+            </div>
+
+            <div class="">
+                <div id="exp4" class="col-sm-8 exp col-sm-offset-2">
+                    <h5>【高亮！】报名者有相关作品（例如摄影、宅舞、cos片、画作等作品）可发送至邮箱zjufantasy@qq.com作为面试参考的依据。
+                        发送邮件时请务必注明昵称与志愿部门及组别，方便面试官查收。如允许，请尽量发送作品投稿链接。
+                    </h5>
+                </div>
+            </div>
+
+            <div class="">
+                <div id="exp5" class="col-sm-8 exp col-sm-offset-2">
+                    <h5>入社需统一交纳社团年费15元。</h5>
+                    <h5>缴纳方式：</h5>
+                    <h5>支付宝转账至18888921720，请务必备注ID以及寝室（否则会失去社员卡并错过社员统计）。
+                        社员卡将于百团大战结束后送至您的寝室邮箱。</h5>
+                    <h5>如果缴费或者社员卡领取出现问题，请联系周逸副社长（社内ID：千殇）：18888921720</h5>
+                </div>
+            </div>
+
+            <div class="" id="submitting">
+                <div id="" class="col-sm-8 exp col-sm-offset-2">
+                    <h4>正在提交报名表，请稍稍等待……</h4>
+                    <!--<h4>请不要反复点击提交按钮_(:з)∠)_</h4>-->
+                </div>
+            </div>
+
+
+            <div class="form-group" id="buttonGrp">
+                <div class="col-sm-offset-5 col-sm-3">
+                    <!--<input type="button" id="submitButton" value="提交报名" onclick="return submitForm()">-->
+                    <button class="" onclick="" id="submitButton">提交报名</button>
+                </div>
+            </div>
+
+            <div class="tail">
+                <h5>微信公众平台：zju_fantasy</h5>
+                <h5>B站：FANTASY动漫社</h5>
+                <h5>微博：@浙大Fantasy动漫社</h5>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+<script type="text/javascript">
+    window.onload = initializePage;
+</script>
+
+</body>
+</html>

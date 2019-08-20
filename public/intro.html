@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+    <title>部门介绍</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/intro.css' />
+
+
+</head>
+<body>
+<div id="headInterval"></div>
+<div class="container-fluid head" id="head">
+    <div class="container header">
+        <h1>Fantasy动漫社部门简介</h1>
+    </div>
+</div>
+
+<canvas class="canvas" id="para1canvas">
+
+</canvas>
+
+<div class="container-fluid para1" id="para1">
+    <div class="intro1 intro" id="intro1">
+        <h2>COS部<br></h2>
+        <h3>这里，你能找到有关cos的一切<br>
+            coser、道具、摄影、后期、舞台剧……应有尽有<br><br></h3>
+        <h4>还……还原度怎么那么高啊？！<br><br></h4>
+        <h3>子部门<br>coser组&nbsp;&nbsp;&nbsp;摄影组&nbsp;&nbsp;&nbsp;道具组</h3>
+        <button class="detailExpand btn">查看详细介绍</button>
+
+        <div class="detailContainer">
+            <div class="details">
+                <h2>coser组<br></h2>
+                <h3>F社coser的交流平台，周末会有妆效、修毛等相关内训，培训从零做起，不需要相关基础。</h3>
+                <h3>在有大型活动时，会出一些游场的coser和妆娘。</h3>
+                <h3>各种约片也是coser们的日常，还可以找人出cp。这里有一个广阔的平台供你们展现自我！</h3>
+            </div>
+            <div>
+                <img src="/images/coser2.jpg" class="introPic">
+                <h5 class="picMark">cn:灯灯</h5>
+            </div>
+            <div>
+                <img src="/images/coser3.jpg" width="100%" class="introPic">
+                <h5 class="picMark">cn:言南、一一、羊駝駝、甜竹</h5>
+            </div>
+
+            <div class="details">
+                <h2>摄影组<br></h2>
+                <h3>摄影组是记录着社团活动、见证社团成长的组。</h3>
+                <h3>摄影组会组织各种线下交流、内训、校外活动等增加大家的知识。</h3>
+                <h3>日常的约片、宅舞部录舞等等也离不开摄影组。</h3>
+            </div>
+            <img src="/images/photo1.jpg" class="introPic" width="100%">
+            <h5 class="picMark">图为摄影组部分器材（均为私人所有）</h5>
+
+            <div class="details">
+                <h2>道具组<br></h2>
+                <h3>道具组负责cosplay道具的制作、改造、维护、修复等工作，是cos部重要的后勤力量。</h3>
+                <h3>许多心灵手巧的大触聚集在这里。</h3>
+                <h3>道具组会从零开始指导新人掌握cos道具的基本制作方法，制作出各种道具。</h3>
+            </div>
+            <img src="/images/item1.jpg" class="introPic" width="100%">
+            <h5 class="picMark">道具组部分作品</h5>
+        </div>
+    </div>
+</div>
+
+<canvas class="canvas" id="para2canvas">
+</canvas>
+
+<div class="container-fluid para2" id="para2">
+    <div class="intro" id="intro2">
+        <h2>DRAMA部<br></h2>
+        <h3>这里是喜爱着声音的一群人<br>
+            配音和后期是我们的主题<br>
+            同时活跃于广播剧、舞台剧配音等领域<br>
+            每周的周聚都有不同的精彩<br><br></h3>
+        <h4>你……你们都是怪物吗？！<br><br><br></h4>
+        <h3>子部门<br>CV组&nbsp;&nbsp;&nbsp;后期组</h3>
+        <button class="detailExpand btn">查看详细介绍</button>
+
+        <div class="detailContainer">
+            <div class="details">
+                <h2>CV组<br></h2>
+                <h3>CV组聚集了拥有各种声线的、热爱声音表演的小伙伴</h3>
+                <h3>我们以达到较高水准为目标开展内训和配音活动，每周都会有配音训练活动</h3>
+                <h3>我们相信，你富有魅力的声音能让人们喜欢！</h3>
+                <br><h3>
+                <a href="https://www.bilibili.com/video/av13969412/" target="_blank">【配音】仙剑四选段【Drama部交作业系列w</a>
+            </h3>
+            </div>
+
+            <div class="details">
+                <h2>后期组<br></h2>
+                <h3>后期组主要负责音频后期制作处理</h3>
+                <h3>平时有后期技巧的教学和练习，也会有V+和鬼畜的教学</h3>
+                <h3>欢迎对音频后期感兴趣并且愿意学习的你！</h3>
+            </div>
+            <img src="/images/d1.png" class="introPic">
+            <h5 class="picMark">D部拟人形象 / 画师：御前</h5>
+        </div>
+    </div>
+</div>
+
+<canvas class="canvas" id="para3canvas">
+
+</canvas>
+
+<div class="container-fluid para3" id="para3">
+    <div class="intro" id="intro3">
+        <h2>宅舞部<br></h2>
+        <h3>在这里，和大家开心地跳舞，还有人为你应援<br>
+            前辈们曾参加BDF线下百人宅舞、CCG漫展宅舞大赛等大型活动<br>
+            我们也是社团演出的主力军<br><br></h3>
+        <h4>偶……偶像们太强啦！<br><br><br></h4>
+        <h3>子部门<br>帅气组&nbsp;&nbsp;&nbsp;男团<br>偶像组&nbsp;&nbsp;&nbsp;应援组</h3>
+        <button class="detailExpand btn">查看详细介绍</button>
+
+        <div class="detailContainer">
+            <!--<div class="details">-->
+                <!--<h2>LoveLive团<br></h2>-->
+                <!--<h3>以Lovelive为主题,翻跳μ's组合的作品</h3>-->
+                <!--<h3>曾代表社团在许多校级活动中进行演出</h3>-->
+                <!--<h3>下一个idol就是你！</h3>-->
+            <!--</div>-->
+            <!--<img src="/images/dance1.jpg" class="introPic">-->
+            <!--<h5 class="picMark">前LL团</h5>-->
+            <!--<div class="details">-->
+                <!--<h2>水团<br></h2>-->
+                <!--<h3>以Lovelive！Sunshine！为主题，翻跳Aqours组合的作品</h3>-->
+                <!--<h3>一起让水团更加优秀吧！</h3>-->
+            <!--</div>-->
+            <!--<img src="/images/dance5.jpg" class="introPic">-->
+            <!--<h5 class="picMark">水团</h5>-->
+            <div class="details">
+                <h2>偶像组<br></h2>
+                <h3>舞蹈风格可爱元气</h3>
+                <h3>小姐姐们快往这里看！</h3>
+            </div>
+            <div class="details">
+                <h2>男团<br></h2>
+                <h3>成员都为男孩子</h3>
+                <h3>舞蹈风格以帅气为主</h3>
+                <h3>男子天团等待你的加入！</h3>
+            </div>
+            <div class="details">
+                <h2>帅气组<br></h2>
+                <h3>舞蹈风格以帅气为主</h3>
+                <h3>这里有力度与节奏的完美融合</h3>
+                <h3>帅气的小姐姐们约起来吖！</h3>
+            </div>
+            <img src="/images/dance3.jpg" class="introPic">
+            <h5 class="picMark">帅气组</h5>
+            <img src="/images/dance4.jpg" class="introPic">
+            <h5 class="picMark">百团之夜</h5>
+            <div class="details">
+                <h2>应援组<br></h2>
+                <h3>コール、ヲタ芸</h3>
+                <h3>这里有专业的应援教学（震声）</h3>
+                <h3>这里也可以和各位call leader一起愉快玩耍</h3>
+                <h3>来为可爱的小姐姐们应援吧！</h3>
+            </div>
+            <img src="/images/call.jpg" class="introPic">
+            <h5 class="picMark">应援现场</h5>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+<canvas class="canvas" id="para4canvas">
+
+</canvas>
+
+<div class="container-fluid para4" id="para4">
+    <div class="intro" id="intro4">
+        <h2>创作部<br></h2>
+        <h3>这里产出了无数优秀的作品<br>
+            绘画、文字、MAD，都凝聚着我们的汗水<br>
+            在这里，请尽情展示你的能力<br>
+            每周的周聚都有不同的精彩<br><br></h3>
+        <h4>好……好多大触啊！<br><br><br></h4>
+        <h3>子部门<br>写手组&nbsp;&nbsp;&nbsp;画手组&nbsp;&nbsp;&nbsp;MAD组&nbsp;&nbsp;轻音组<br></h3>
+        <button class="detailExpand btn">查看详细介绍</button>
+
+        <div class="detailContainer">
+            <div class="details">
+                <h2>写手组<br></h2>
+                <h3>我们脑洞偏大，思想偏怪，挖坑不慢，填坑不快。</h3>
+                <h3>大佬很多很和善，萌新不少还能肝。</h3>
+                <h3>我们渴望着有趣的灵魂，寻求着新鲜的梦想。</h3>
+                <h3>不来写就新世界吗？</h3>
+            </div>
+            <div class="details">
+                <h2>画手组<br></h2>
+                <h3>画手触触们的聚集地</h3>
+                <h3>各种画风与技巧的结合与碰撞，</h3>
+                <h3>各种小哥哥小姐姐的完美融合。</h3>
+                <h3>有组聚技巧的交流也有画手大大的分享，</h3>
+                <h3>一起来开发新姿势（划掉）技能吧～</h3>
+            </div>
+            <img src="/images/hecai.jpg" class="introPic">
+            <h5 class="picMark">画师：贺彩</h5>
+            <img src="/images/hako.jpg" class="introPic">
+            <h5 class="picMark">南小鸟 / 画师：hako</h5>
+            <div class="details">
+                <h2>MAD组<br></h2>
+                <h3>大佬云集的视频小组。</h3>
+                <h3>最活跃的组内氛围，创部最多的组聚,</h3>
+                <h3>面向新人的精品课程，让你从AE和PR小白正式入门。</h3>
+                <h3>还不来问组长要Adobe全套？</h3>
+                <img src="/images/creation1.jpg" max-width="100%">
+                <h3>
+                    <a href="https://www.bilibili.com/video/av7410540/" target="_blank">来自新世界MAD/《没有孩子的世界》 作者:Logo</a>
+                </h3>
+            </div>
+            <div class="details">
+                <h2>轻音组<br></h2>
+                <h3>轻音组，名副其实高端大气上档次音乐研究小组。</h3>
+                <h3>通过内训学习基本乐理以及数字音频编曲相关知识，</h3>
+                <h3>发展动漫配乐或同人歌曲的交流创作，</h3>
+                <h3>还有写手组大佬带你填词。</h3>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<canvas class="canvas" id="para5canvas">
+
+</canvas>
+
+<div class="container-fluid para5" id="para5">
+    <div class="intro" id="intro5">
+        <h2>事务部<br></h2>
+        <h3>我们是社团的运营者<br>
+            是社团前进的燃料<br>
+            贡献着也许微小，但却十分重要力量<br><br></h3>
+        <h4>有……有你们真的太好了！<br><br><br></h4>
+        <h3>子部门<br>策划组&nbsp;&nbsp;&nbsp;外联组&nbsp;&nbsp;&nbsp;文宣组&nbsp;&nbsp;&nbsp;内务组&nbsp;&nbsp;&nbsp;</h3>
+
+        <button class="detailExpand btn">查看详细介绍</button>
+
+        <div class="detailContainer">
+            <div class="details">
+                <h2>策划组<br></h2>
+                <h3>在活动前期撰写策划案、活动后的简单总结</h3>
+            </div>
+            <div class="details">
+                <h2>外联组<br></h2>
+                <h3>负责联系校内外友好社团和组织，邀请他们来表演，宣传自己社团的同时也丰富活动内容。</h3>
+            </div>
+            <div class="details">
+                <h2>文宣组<br></h2>
+                <h3>线上媒体宣传、线下宣传品制作</h3>
+                <h4>线下组：从创作部大佬接手海报传单积分卡等设计图和横幅标语，赶制线下所需的宣传品。</h4>
+                <h4>线上组：在微博和微信公众号用次元文字为即将到来的活动预热。</h4>
+            </div>
+            <div class="details">
+                <h2>内务组<br></h2>
+                <h3>社内信息交接传递、活动后勤工作</h3>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<canvas class="canvas" id="para6canvas">
+
+</canvas>
+
+<div class="container-fluid" id="para6">
+    <div class="container" id="tail">
+        <h3>也许你已经是一方神触，也许你才刚刚起步<br>
+            也许你想尝试一个新的领域，也许你希望学习人生的经验<br>
+            一定有一个部门会是属于你的世界<br>
+            加入F社，你将展翅翱翔<br><br></h3>
+        <a href="/joinus.html" target="_blank" style="color: #2795ac;"><h1>现在就加入F社</h1></a>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    function fillPattern(cvx, topColor, bottomColor,width, height, mark) {
+        if (mark % 2 == 0)
+        {
+            cvx.beginPath();
+            cvx.moveTo(0,0);
+            cvx.lineTo(width, 0);
+            cvx.lineTo(width, height);
+            cvx.closePath();
+            cvx.fillStyle = topColor;
+            cvx.fill();
+
+            cvx.beginPath();
+            cvx.moveTo(0, 0);
+            cvx.lineTo(0, height);
+            cvx.lineTo(width, height);
+            cvx.closePath();
+            cvx.fillStyle = bottomColor;
+            cvx.fill();
+        }
+        else
+        {
+            cvx.beginPath();
+            cvx.moveTo(0,0);
+            cvx.lineTo(0, height);
+            cvx.lineTo(width, 0);
+            cvx.closePath();
+            cvx.fillStyle = topColor;
+            cvx.fill();
+
+            cvx.beginPath();
+            cvx.moveTo(width, height);
+            cvx.lineTo(0, height);
+            cvx.lineTo(width, 0);
+            cvx.closePath();
+            cvx.fillStyle = bottomColor;
+            cvx.fill();
+        }
+
+    }
+
+    //    var colors = ['#E0E0E0', 'rgb(0,179,205)', 'rgb(162,215,221)',
+    //        'rgb(235,245,235)', 'rgb(203,227,174)', 'rgb(238,134,154)', 'rgb(0,148,163)'];
+    //scheme1
+
+    var colors = ['#E0E0E0', '#56d1e3','#fed5ab','#e1e1f2','#f0c0c0','#ddb084','#fafcce'];
+    //2
+
+    var paraCount = 6;
+
+    var head = document.getElementById('head');
+    head.style.backgroundColor = colors[0];
+
+    function paintDiv()
+    {
+        for (var i = 1; i <= paraCount; i++)
+        {
+            var paraId = 'para' + i;
+            var para = document.getElementById(paraId);
+            para.style.backgroundColor = colors[i];
+        }
+    }
+
+    function drawCanvas()
+    {
+        var ratio = 0.16;
+        var width = document.body.clientWidth;
+        var height = document.documentElement.clientHeight * ratio;
+
+        for (var i = 0; i < paraCount; i++)
+        {
+
+            var paraNumber = i + 1;
+            var topColor = colors[i];
+            var bottomColor = colors[i + 1];
+
+            var canvasId = 'para' + paraNumber + 'canvas';
+            var canvas = document.getElementById(canvasId);
+            var cvx = canvas.getContext('2d');
+
+            canvas.height = height;
+            canvas.width = width;
+            fillPattern(cvx, topColor, bottomColor, width, height, i);
+        }
+    }
+    paintDiv();
+    drawCanvas();
+    window.onresize = function () {
+        drawCanvas();
+    };
+
+    $('.detailExpand').click(function () {
+        $(this).next('.detailContainer').slideToggle(400);
+    });
+
+</script>
+</body>
+</html>

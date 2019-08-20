@@ -1,0 +1,19 @@
+#head{
+    text-align: center;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.pic{
+    width:100%;
+    z-index: 1;
+}
+
+.gradientLayer{
+    position: relative;
+    margin-top: -96px;
+    z-index: 2;
+    height: 96px;
+
+    background: linear-gradient(rgba(168, 255, 119, 0), rgba(168, 255, 119, 1));
+}

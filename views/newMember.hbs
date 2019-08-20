@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+    <title>{{nickname}}</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<!--<style type="text/css">-->
+    <!--.line-wrap-content{-->
+        <!--white-space: pre-wrap;-->
+    <!--}-->
+<!--</style>-->
+<div id="headInterval">
+
+</div>
+
+<div class="container">
+
+    <!--{{#if paid}}-->
+        <!--<h4>缴费状态：<span style="color: green">已缴费</span></h4>-->
+    <!--{{else}}-->
+        <!--<h4>缴费状态：<span style="color: red" id="payStatus">未缴费</span></h4>-->
+        <!--<button type="submit" class="btn" onclick="pay()">点击交费</button>-->
+    <!--{{/if}}-->
+    <h4><br>姓名：{{name}}</h4>
+    <h4>昵称：{{nickname}}</h4>
+    <h4>性别：{{sex}}</h4>
+    <h4>学号：{{studentId}}</h4>
+    <h4>专业/大类：{{major}}</h4>
+    <h4>长号：{{phoneNumber}}</h4>
+    <h4>短号：{{shortNumber}}</h4>
+
+    <h4>QQ：{{qq}}</h4>
+    <h4>email：{{email}}</h4>
+    <h4>生日：{{birthday}}</h4>
+    <h4>宿舍：{{dormitory}}</h4>
+
+    <h4>报名时间：{{time}}</h4>
+    <hr>
+    <h4>你心中的漫社是个什么样的地方？加入漫社的你希望获得什么？</h4>
+    <h4>{{comment}}</h4>
+    <hr>
+    <h4>是否入部：{{ifJoinDepartment}}</h4>
+    {{#if joinDepartment}}
+        <h4>第一志愿部门：{{department1}}</h4>
+        <h4>第一志愿组：{{group1}}</h4>
+        {{#if department2}}
+            <h4>第二志愿部门：{{department2}}</h4>
+            <h4>第二志愿组：{{group2}}</h4>
+        {{/if}}
+        {{#if department3}}
+            <h4>第三志愿部门：{{department3}}</h4>
+            <h4>第三志愿组：{{group3}}</h4>
+        {{/if}}
+        <h4>可用面试时间</h4>
+        {{#each freeTime}}
+            <h4>{{this}}</h4>
+        {{/each}}
+        <h4>最终面试时间：{{interviewTime}}</h4>
+        <div class="form-group container">
+            <div class="container">
+                <label for="changeTime" class="col-sm-2 control-label" >更改面试时间</label>
+            </div>
+            <div class="col-sm-3">
+            <select name="changeTime" class="form-control" id="changeTime">
+                <option value="未安排面试">未安排面试</option>
+            </select>
+                <button type="submit" class="btn btn-default" onclick="changeTime()">更改时间</button>
+            </div>
+        </div>
+        <hr>
+        <div>
+            {{#each extraQuestions}}
+                <h4>[{{from}}]{{questionContent}}</h4>
+                <h4>{{{renderText answer}}}</h4>
+                <br>
+            {{/each}}
+        </div>
+
+    {{/if}}
+    <hr>
+    <h4>Free Talk</h4>
+    <h4>{{{renderText freeTalk}}}</h4>
+    <hr>
+
+    <div class="container" id="commentArea">
+        {{#each comments}}
+            <h4>发布者：{{user}} <span style="float: right;">发布时间：{{time}}</span></h4>
+            <h4>&nbsp;</h4>
+            <h4 class="line-wrap-content">{{{renderText content}}}</h4>
+            <hr>
+        {{/each}}
+    </div>
+
+    <div class="container" id="form">
+        <form class="form-horizontal" role="form" method="post" onsubmit="return submitForm()">
+            <div class="container">
+                <h4><label class="" for="content">发送评论</label></h4>
+                <div class="col-sm-12">
+                    <textarea id="content" class="form-control" rows=4 name="content"></textarea>
+                </div>
+            </div>
+            <div class="container" style="padding-top: 16px">
+                <div class="col-sm-2" id="submit" style="text-align: center; float: right;">
+                    <button id="submitBtn" type="submit" class="btn btn-lg" >发表评论</button>
+                </div>
+            </div>
+        </form>
+        <script type="text/javascript">
+            window.onload = function () {
+                var interviewTimeList = {{{interviewTimeList}}};
+                interviewTimeList.forEach(function (time) {
+                    document.getElementById('changeTime').innerHTML +=
+                            '<option value="' + time + '">' + time + '</option>';
+                })
+            };
+            function submitForm(){
+                $.ajax({
+                    type: 'POST',
+                    url: '/postComment/{{_id}}',
+                    contentType: 'application/json',
+                    dataType: 'text',
+                    data: JSON.stringify({
+                        comment: document.forms[0][0].value
+                    }),
+                    success: function (msg) {
+                        if (msg === 'success') {
+                            location.reload();
+                            return false;
+                        } else {
+                            alert(msg);
+                            return false;
+                        }
+                    },
+                    error: function () {
+                        alert('哎呀，出错了！\n过一会再试试，或联系网瘾');
+                        return false;
+                    }
+                });
+                return false;
+            }
+
+            function pay() {
+                $.ajax({
+                    type: 'POST',
+                    url: '/pay/{{_id}}',
+                    data: '',
+                    success: function (msg) {
+                        if (msg === 'success') {
+                            location.reload();
+                            return false;
+                        } else {
+                            alert(msg);
+                            return false;
+                        }
+                    },
+                    error: function () {
+                        alert('哎呀，出错了！\n过一会再试试，或联系网瘾');
+                        return false;
+                    }
+                });
+                return false;
+            }
+
+            function changeTime() {
+                var newTime = document.getElementById('changeTime').value;
+                $.ajax({
+                    type: 'POST',
+                    url: '/changeInterviewTime/{{_id}}',
+                    data: {newTime: newTime},
+                    success: function (msg) {
+                        if (msg === 'success') {
+                            location.reload();
+                            return false;
+                        } else {
+                            alert(msg);
+                            return false;
+                        }
+                    },
+                    error: function () {
+                        alert('哎呀，出错了！\n过一会再试试，或联系网瘾');
+                        return false;
+                    }
+                });
+            }
+        </script>
+    </div>
+
+</div>
+
+
+</body>
+</html>

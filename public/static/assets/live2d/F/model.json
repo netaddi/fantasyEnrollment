@@ -1,0 +1,40 @@
+{
+	"version":"Sample 1.0.0",
+	"model":"model.moc",
+	"textures":[
+		"model.2048/texture_00"
+	],
+	"motions":{
+		"shake":[
+			{"file":"motions01/shake_00.mtn", "sound":"sounds/shake_00.mp3","fade_in":500,"fade_out":500}
+		],
+		"pinch_in":[
+			{"file":"motions01/pinchIn_00.mtn","sound":"sounds/pinchIn_00.mp3","fade_in":500,"fade_out":500}
+		],
+		"idle":[
+			{"file":"motions01/idle_00.mtn","fade_in":500,"fade_out":500},
+			{"file":"motions01/idle_01.mtn","fade_in":500,"fade_out":500},
+			{"file":"motions01/idle_02.mtn","fade_in":500,"fade_out":500}
+		],
+		"pinch_out":[
+			{"file":"motions01/pinchOut_00.mtn","sound":"sounds/pinchOut.mp3","fade_in":500,"fade_out":500}
+		],
+		"flick_head":[
+			{"file":"motions01/flickHead_00.mtn","sound":"sounds/flickHead_00.mp3","fade_in":500,"fade_out":500}
+		],
+		"tap_body":[
+			{"file":"motions01/tapBody_00.mtn","sound":"sounds/tapBody_00.mp3","fade_in":500,"fade_out":500},
+			{"file":"motions01/tapBody_01.mtn","sound":"sounds/tapBody_01.mp3","fade_in":500,"fade_out":500},
+			{"file":"motions01/tapBody_02.mtn","sound":"sounds/tapBody_02.mp3","fade_in":500,"fade_out":500},
+			{"file":"motions01/tapBody_03.mtn","sound":"sounds/tapBody_03.mp3","fade_in":500,"fade_out":500},
+			{"file":"motions01/tapBody_04.mtn","sound":"sounds/tapBody_04.mp3","fade_in":500,"fade_out":500},
+			{"file":"motions01/tapBody_05.mtn","sound":"sounds/tapBody_05.mp3","fade_in":500,"fade_out":500},
+			{"file":"motions01/tapBody_06.mtn","fade_in":500,"fade_out":500},
+			{"file":"motions01/tapBody_07.mtn","fade_in":500,"fade_out":500},
+			{"file":"motions01/tapBody_08.mtn","fade_in":500,"fade_out":500},
+			{"file":"motions01/tapBody_09.mtn","fade_in":500,"fade_out":500}
+		]
+	},
+	"project_settings":"model.settings.json",
+	"name":"model"
+}

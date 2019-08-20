@@ -1,0 +1,30 @@
+{
+  "name": "fantasy_enroll",
+  "version": "1.0.0",
+  "description": "website for enrollment of fantasy anime.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xi yang",
+  "license": "ISC",
+  "dependencies": {
+    "7": "0.0.1",
+    "escape-html": "^1.0.3",
+    "handlebars": "^4.1.2",
+    "koa": "^2.5.2",
+    "koa-body": "^4.0.4",
+    "koa-logger": "^3.2.0",
+    "koa-mongo": "^1.4.0",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.8.3",
+    "koa-static": "^5.0.0",
+    "koa-static-cache": "^5.1.2",
+    "koa-views": "^6.1.4",
+    "koa-views-render": "0.0.1",
+    "md5": "^2.2.1",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.21",
+    "vue": "^2.5.17"
+  }
+}

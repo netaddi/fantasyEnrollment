@@ -1,0 +1,66 @@
+{
+	"type": "Live2D Model Setting",
+	"name": "model",
+	"model": "model.moc",
+	"textures": [
+		"model.2048/texture_00.png"
+	] ,
+    "physics":"model.physics.json",
+    "pose":"model.pose.json",
+    "expressions":
+    [
+     {"name":"f01","file":"expressions/f01.exp.json"},
+     {"name":"f02","file":"expressions/f02.exp.json"},
+     {"name":"f03","file":"expressions/f03.exp.json"},
+     {"name":"f04","file":"expressions/f04.exp.json"}
+    ],
+    "layout":
+    {
+        "center_x":0,
+        "y":1.2,
+        "width":2.4
+    },
+    "hit_areas":
+    [
+        {"name":"head", "id":"D_REF.MYPARTS_00"},
+        {"name":"body", "id":"D_REF.BODY"}
+    ],
+    "motions":
+    {
+        "idle":
+        [
+            {"file":"motions01/idle_00.mtn" ,"fade_in":2000, "fade_out":2000},
+            {"file":"motions01/idle_01.mtn" ,"fade_in":2000, "fade_out":2000},
+            {"file":"motions01/idle_02.mtn" ,"fade_in":2000, "fade_out":2000}
+        ],
+        "tap_body":
+        [
+            { "file":"motions01/tapBody_00.mtn","sound":"sounds/tapBody_00.mp3"},
+            { "file":"motions01/tapBody_01.mtn","sound":"sounds/tapBody_01.mp3"},
+            { "file":"motions01/tapBody_02.mtn","sound":"sounds/tapBody_02.mp3"},
+			{ "file":"motions01/tapBody_03.mtn","sound":"sounds/tapBody_03.mp3"},
+		    { "file":"motions01/tapBody_04.mtn","sound":"sounds/tapBody_04.mp3"},
+			{ "file":"motions01/tapBody_05.mtn","sound":"sounds/tapBody_05.mp3"},
+			{ "file":"motions01/tapBody_06.mtn"},
+			{ "file":"motions01/tapBody_07.mtn"},
+			{ "file":"motions01/tapBody_08.mtn"},
+			{ "file":"motions01/tapBody_09.mtn"}
+        ],
+        "pinch_in":
+        [
+            { "file":"motions01/pinchIn_00.mtn","sound":"sounds/pinchIn_00.mp3"}
+        ],
+        "pinch_out":
+        [
+            { "file":"motions01/pinchOut_00.mtn","sound":"sounds/pinchOut_00.mp3"}
+        ],
+        "shake":
+        [
+            { "file":"motions01/shake_00.mtn","sound":"sounds/shake_00.mp3","fade_in":500 }
+        ],
+        "flick_head":
+        [
+            { "file":"motions01/flickHead_00.mtn","sound":"sounds/flickHead_00.mp3"}
+        ]
+    }
+}

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+    <title>报名人员信息</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+
+</head>
+<body>
+<style type="text/css">
+    .table a
+    {
+        display:block;
+        text-decoration:none;
+    }
+    #rendering{
+        display: none;
+    }
+    label{
+        margin-right: 16px;
+    }
+    p {
+        margin-bottom: 0;
+    }
+</style>
+<div id="headInterval"></div>
+<div class="container">
+    <h2>报名人员信息</h2>
+    <h4 id="loading">数据加载中，请稍等</h4>
+    <h4 id="rendering">数据加载完成，正在准备页面，请稍等</h4>
+    <h4>小提示：建议使用电脑浏览，可以用Ctrl + F搜索想要的信息。
+        请尽量使用新版 Chrome / Firefox / Edge / Safari 浏览器访问。
+        拒绝辣鸡浏览器（尤其指360），从我做起！</h4>
+
+    <div class="container" id="filters">
+        <h4>按条件筛选</h4>
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th scope="col">姓名</th>
+            <th scope="col">昵称</th>
+            <th scope="col">性别</th>
+            <th scope="col">学号</th>
+            <th scope="col">QQ</th>
+            <th scope="col">电话</th>
+            <th scope="col">入部</th>
+            <th scope="col">面试时间</th>
+            <th scope="col">报名组</th>
+        </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    let jsonMemberList = [];
+    const renderAttribute = ['_id', 'name', 'nickname', 'sex', 'studentId', 'qq', 'phoneNumber',
+        'ifJoinDepartment', 'interviewTime', 'departInfoString'];
+    // const filterAttributes = ['groups', 'departments', 'ifJoinDepartment', 'interviewTime'];
+    const filterAttributesInfo = [
+        {
+            attr: 'ifJoinDepartment',
+            name: '是否入部'
+        }, {
+            attr: 'departments',
+            name: '部门'
+        }, {
+            attr: 'groups',
+            name: '组'
+        // }, {
+        //     attr: 'sex',
+        //     name: '性别'
+        }, {
+            attr: 'interviewTime',
+            name: '面试时间'
+        }
+    ];
+
+    function renderMember(memberInfo){
+        let id = memberInfo[0];
+        memberInfo.shift();
+        return memberInfo.map(function (cell) {
+            return '<td><a href="/newMember/' + id + '" target="_blank">' + cell + '</a></td>'
+        }).join('')
+            // .concat(['<button type="submit" class="btn" onclick="pay()">点击交费</button>']);
+    }
+
+    function renderMemberJson(memberJson) {
+        document.getElementById('table-body').innerHTML = '';
+        memberJson.map(function (member) {
+            return renderAttribute.map(function (attribute) {
+                return member[attribute];
+            });
+        }).forEach(function (member) {
+            document.getElementById('table-body').innerHTML +=
+                '<tr>' + renderMember(member) + '</tr>';
+        });
+    }
+
+    function renderFilters(attributeList, memberJsonList) {
+        const filtersDiv = document.getElementById('filters');
+        attributeList.forEach(attribute => {
+            const filterId = attribute.attr + 'Filter';
+            const filterName = attribute.name;
+            const attributeCounter = aggregateAttributeValues(attribute.attr, memberJsonList);
+            filtersDiv.innerHTML += `
+                <div class="col-md-3 mb-3">
+                    <label for="${filterId}">${filterName}</label>
+                    <select name="${filterId}" class="form-control" id="${filterId}" onchange="applyFilter()">
+                        <option value="">所有</option>
+                        ${
+                            attributeCounter.getValueSet()
+                            .map(value => {
+                                return `<option value="${value}">${value}</option>`;
+                            }).join()
+                        }
+                    </select>
+                    ${
+                            attributeCounter.getValueSet()
+                            .map(value => {
+                                const count = attributeCounter.getCount(value);
+                                return `<p>${value}：${count} 人</p>`;
+                            }).join('')
+                    }
+                </div> `;
+        });
+    }
+
+    function applyFilter() {
+        const filteredMembers = filterAttributesInfo.reduce((membersLeft, attribute) => {
+            const filterValue = document.getElementById(attribute.attr + 'Filter').value;
+            return membersLeft.filter(member => {
+                if (filterValue) {
+                    if (Array.isArray(member[attribute.attr])) {
+                        return member[attribute.attr].includes(filterValue);
+                    } else {
+                        return member[attribute.attr] === filterValue;
+                    }
+                } else {
+                    return true;
+                }
+            });
+        }, jsonMemberList);
+        renderMemberJson(filteredMembers);
+        return filteredMembers;
+    }
+
+    class Counter{
+        constructor() {
+            this.counterMap = {};
+        }
+
+        add(value) {
+            if (value in this.counterMap) {
+                this.counterMap[value]++;
+            } else {
+                this.counterMap[value] = 1;
+            }
+        }
+
+        getValueSet() {
+            return Object.keys(this.counterMap).sort();
+        }
+
+        getCount(value) {
+            return this.counterMap[value];
+        }
+    }
+
+    function aggregateAttributeValues(attribute, jsonList) {
+        return jsonList.reduce((valueSet, member) => {
+            if (Array.isArray(member[attribute])) {
+                member[attribute].forEach(value => {
+                    valueSet.add(value);
+                })
+            } else {
+                valueSet.add(member[attribute]);
+            }
+            return valueSet;
+        }, new Counter());
+    }
+
+    function processMemberList(members){
+        document.getElementById('rendering').style.display = 'block';
+
+        const attributeList = members[0];
+        members.shift();
+
+        jsonMemberList = members.map(function (member) {
+            let memberJson = {};
+            attributeList.forEach(function (attribute, idx) {
+                memberJson[attribute] = member[idx];
+            });
+            memberJson.groups = [];
+            memberJson.departments = [];
+            let departInfo = [1, 2, 3].filter(function (id) {
+                return memberJson['department' + id];
+            }).map(function (id) {
+                let depart = memberJson['department' + id];
+                let group = memberJson['group' + id];
+                memberJson.departments.push(depart);
+                memberJson.groups.push(group);
+                return depart + '-' + group;
+            });
+            memberJson.departInfoString = departInfo.join(', ');
+
+            return memberJson;
+        });
+
+        renderMemberJson(jsonMemberList);
+        renderFilters(filterAttributesInfo, jsonMemberList);
+
+        document.getElementById('rendering').style.display = 'none';
+    }
+
+    window.onload = function () {
+        $.get("getMemberList", function (memberData) {
+            if (memberData === 'login') {
+                document.getElementById('loading').innerHTML = '请先<a href="/flogin.html">登录</a>';
+                return;
+            }
+            document.getElementById('loading').style.display = 'none';
+            processMemberList(memberData);
+        });
+        // $.get("getInfo", function (regInfo){
+        //     regInfo.departInfo.forEach(function (depart) {
+        //         document.getElementById('depart-filter').innerHTML +=
+        //             '<input class="form-check-input" type="checkbox" value="' + depart.department + '" checked>\n' +
+        //             '<label class="form-check-label" for="' + depart.department + '">\n' + depart.department + '</label>';
+        //
+        //         depart.groups.forEach(function (group) {
+        //             document.getElementById('group-filter').innerHTML +=
+        //                 '<input class="form-check-input" type="checkbox" value="' + group.name + '" checked>\n' +
+        //                 '<label class="form-check-label" for="' + group.name + '">\n' + group.name + '</label>';
+        //
+        //         })
+        //     });
+        // })
+    }
+</script>
+</body>
+</html>
